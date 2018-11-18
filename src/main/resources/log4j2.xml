@@ -12,10 +12,10 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="trace">
+        <Root level="info">
             <AppenderRef ref="RollingFile"/>
         </Root>
-        <Logger name="org.apache" level="warn" additivity="false">
+        <Logger name="org.apache" level="info" additivity="false">
             <AppenderRef ref="RollingFile"/>
         </Logger>
         <Logger name="com.github.jvanheesch" level="info" additivity="false">
