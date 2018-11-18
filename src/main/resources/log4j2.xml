@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+    <Appenders>
+        <RollingFile name="RollingFile" fileName="logs/main.log" filePattern="logs/main-%d{MM-dd-yyyy}-%i.log.gz" ignoreExceptions="false">
+            <PatternLayout>
+                <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] [line %L] [%p] [%c] [%m]%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="RollingFile"/>
+        </Root>
+        <Logger name="org.apache" level="warn" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+        <Logger name="com.github.jvanheesch" level="info" additivity="false">
+            <AppenderRef ref="RollingFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>

@@ -8,6 +8,12 @@
     <artifactId>boot-far-jar</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.language.version>8</java.language.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,6 +54,15 @@
     <build>
         <finalName>executable-fat-jar</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.language.version}</source>
+                    <target>${java.language.version}</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
